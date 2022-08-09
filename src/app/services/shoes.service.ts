@@ -19,15 +19,31 @@ export class ShoesService {
     );
   }
   getShoesforbrand(brand: string):Observable<Shoes[]>{
-    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/brand?brand=${brand}`)
+    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/brand?brand=${brand}`).pipe(
+      map((response:any)=>{
+        return response.data;
+      })
+    );
   }
   getShoesformodel(model: string):Observable<Shoes[]>{
-    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/model?model=${model}`)
+    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/model?model=${model}`).pipe(
+      map((response:any)=>{
+        return response.data;
+      })
+    );
   }
   getShoesfordate(date: string):Observable<Shoes[]>{
-    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/date?name=${date}`)  
+    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/date?name=${date}`).pipe(
+      map((response:any)=>{
+        return response.data;
+      })
+    );  
   }
   getShoesforname(name: string):Observable<Shoes[]>{
-    return this.http.get<Shoes[]>(`${this.BASE_URL}/name?name=${name}`)  
+    return this.http.get<Shoes[]>(`${this.BASE_URL}/name?name=${name}`)  .pipe(
+      map((response:any)=>{
+        return response.data;
+      })
+    );
   }
 }
