@@ -4,10 +4,6 @@ import { ShoesListComponent } from "./components/shoes-list/shoes-list.component
 
 const routes: Routes = [
   {
-    path:'',
-    component: ShoesListComponent
-  },
-  {
     path:'shoes',
     component: ShoesListComponent
   }
