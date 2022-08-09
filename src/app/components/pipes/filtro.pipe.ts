@@ -6,8 +6,11 @@ import { Shoes } from 'src/app/interfaces/shoes';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(value: Shoes[], page: number=0): Shoes[] {
-    return value.slice(page,page+5);
+  transform(value: Shoes[], page: number=0, search: string=''): Shoes[] {
+    if (search.length ===0)
+    return value.slice(page,page+6);
+    const filterName = value.filter(name=> name.name.includes(search));
+    return filterName.slice(page,page+6);
   }
 
 }
