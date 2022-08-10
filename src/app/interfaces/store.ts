@@ -2,7 +2,7 @@ import { Shoes } from "./shoes";
 
 export interface Store {
     name: string;
-    id:string;
-    shoes:Shoes[];
+    id: string;
+    shoes: Shoes[];
 
 }

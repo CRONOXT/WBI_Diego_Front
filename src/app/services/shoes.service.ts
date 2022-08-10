@@ -8,57 +8,57 @@ import { map } from "rxjs/operators";
   providedIn: 'root'
 })
 export class ShoesService {
-  BASE_URL: string= 'http://localhost:3000';
+  BASE_URL: string = 'http://localhost:3000';
 
-  constructor(private http:HttpClient) { }
-  getShoes(): Observable<Shoes[]>{
+  constructor(private http: HttpClient) { }
+  getShoes(): Observable<Shoes[]> {
     return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/todos`).pipe(
-      map((response: any)=>{
+      map((response: any) => {
         return response.data;
       })
     );
   }
-  getShoesforbrand(brand: string):Observable<Shoes[]>{
+  getShoesforbrand(brand: string): Observable<Shoes[]> {
     return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/brand?brand=${brand}`).pipe(
-      map((response:any)=>{
+      map((response: any) => {
         return response.data;
       })
     );
   }
-  getShoesformodel(model: string):Observable<Shoes[]>{
+  getShoesformodel(model: string): Observable<Shoes[]> {
     return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/model?model=${model}`).pipe(
-      map((response:any)=>{
+      map((response: any) => {
         return response.data;
       })
     );
   }
-  getShoesfordate(date: string):Observable<Shoes[]>{
+  getShoesfordate(date: string): Observable<Shoes[]> {
     return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/date?name=${date}`).pipe(
-      map((response:any)=>{
+      map((response: any) => {
         return response.data;
       })
-    );  
+    );
   }
-  getShoesforname(name: String):Observable<Shoes[]>{
+  getShoesforname(name: String): Observable<Shoes[]> {
     return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/name?name=${name}`).pipe(
-      map((response:any)=>{
+      map((response: any) => {
         return response.data;
       })
     );
   }
 
-  getShoesforstore(store: String):Observable<Shoes[]>{
+  getShoesforstore(store: String): Observable<Shoes[]> {
     return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/store?store=${store}`).pipe(
-      map((response:any)=>{
+      map((response: any) => {
         return response.data;
       })
     );
   }
-  getShoesforDateAsc():Observable<Shoes[]>{
+  getShoesforDateAsc(): Observable<Shoes[]> {
     return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/date/asc`).pipe(
-      map((response:any)=>{
+      map((response: any) => {
         return response.data;
       })
     );
-    }
   }
+}

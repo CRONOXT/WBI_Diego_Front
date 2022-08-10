@@ -12,60 +12,63 @@ import { __values } from 'tslib';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  date: string="2022-01-01";
+  date: string = "2022-01-01";
   name!: string;
-  filtro:string='NAME';
-  shoes: Shoes[]=[];
+  filtro: string = 'NAME';
+  shoes: Shoes[] = [];
   //SE INYECTA EL SERVICIO PARA PODER TOMAR SUS FUNCIONES                                                                         
-  constructor(private comunication: HelperService,private search: ShoesService) {
+  constructor(private comunication: HelperService, private search: ShoesService) {
 
-   }
+  }
 
   ngOnInit(): void {
   }
-  getDateAsc(){
+  getDateAsc() {
     this.search.getShoesforDateAsc()
       .subscribe(
         res => {
           this.shoes = Object.values(res);
-        },)
+        })
   }
 
-  getDates(values: string){
+  getDates(values: string) {
     this.search.getShoesfordate(values)
       .subscribe(
         res => {
           this.shoes = Object.values(res);
-        },)
+        })
   }
 
-  getSearch(values: string, filtro: string){  //BUSQUEDA ATRAVEZ DEL BACKEND
-    
-    if (filtro==='NAME') {
+  getSearch(values: string, filtro: string) {  //BUSQUEDA ATRAVEZ DEL BACKEND
+
+    if (filtro === 'NAME') {
       this.search.getShoesforname(values.toLowerCase())
-      .subscribe(
-        res => {
-          this.shoes = Object.values(res);
-        },)
-    }
-    else if (filtro==='STORE'){
-      this.search.getShoesforstore(values.toLowerCase())
-      .subscribe(
-        res => {
-          this.shoes = Object.values(res);
-        },)}
-    else if (filtro==='MODEL'){
-        this.search.getShoesformodel(values.toLowerCase())
         .subscribe(
           res => {
             this.shoes = Object.values(res);
-          },)}
-    else if (filtro==='BRAND'){
+          })
+    }
+    else if (filtro === 'STORE') {
+      this.search.getShoesforstore(values.toLowerCase())
+        .subscribe(
+          res => {
+            this.shoes = Object.values(res);
+          })
+    }
+    else if (filtro === 'MODEL') {
+      this.search.getShoesformodel(values.toLowerCase())
+        .subscribe(
+          res => {
+            this.shoes = Object.values(res);
+          })
+    }
+    else if (filtro === 'BRAND') {
       this.search.getShoesforbrand(values.toLowerCase())
-      .subscribe(
-        res => {
-          this.shoes = Object.values(res);
-        },)}
-    }  
- }
+        .subscribe(
+          res => {
+            this.shoes = Object.values(res);
+          })
+    }
+  }
+}
 
