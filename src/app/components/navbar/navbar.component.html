@@ -14,9 +14,6 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/last_releases']" (click)="getDateAsc()">LAST RELEASES</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/date']">SEARCH FOR DATE</a>
-          </li>
         </ul>
         <div class="container">
         <!-- EN ESTE INPUT SE TOMA EL NOMBRE ESCRITO POR LA BARRA DE BUSQUEDA Y SE MANTA ATRAVEZ DEL GETSEARCH PARA OBTENER LA DATA DE LA API -->
@@ -32,10 +29,29 @@
               </select>
 
         </div>
-
       </div>
     </div>
   </nav>
 <!-- SE MANDA LA INFORMACION DE LOS ZAPATOS, NOMBRES Y EL FILTRO PARA PODER ENSENAR EN LA LISTA DE ZAPATOS -->
 
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link bg-secondary" (click)="getDates(date)">SEARCH</a>            
+        </li>
+        <li class="nav-item">
+          <input style="font-size: 13px" [(ngModel)]="date" type="date" id="start" name="trip-start" min="2000-01-01" max="2022-12-31"  class="form-select-lg prueba2">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   <app-shoes-list [filtro]="filtro" [name]="name" [shoes]="shoes"></app-shoes-list>
+
+
+  
