@@ -22,49 +22,40 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  getDateAsc(){
+    this.search.getShoesforDateAsc()
+      .subscribe(
+        res => {
+          this.shoes = Object.values(res);
+        },)
+  }
   getSearch(values: string, filtro: string){  //BUSQUEDA ATRAVEZ DEL BACKEND
-    if (values===''){
-      this.search.getShoes()
-      .subscribe(
-        res => {
-          this.shoes = Object.values(res);
-        },
-        
-      )
-    }
+ 
     if (filtro==='NAME') {
-      this.search.getShoesforname(values)
+      this.search.getShoesforname(values.toLowerCase())
       .subscribe(
         res => {
           this.shoes = Object.values(res);
-        },
-        
-      )}
-    if (filtro==='STORE'){
-      this.search.getShoesforstore(values)
+        },)
+    }
+    else if (filtro==='STORE'){
+      this.search.getShoesforstore(values.toLowerCase())
       .subscribe(
         res => {
           this.shoes = Object.values(res);
-        },
-        
-      )}
-    if (filtro==='MODEL'){
-        this.search.getShoesformodel(values)
+        },)}
+    else if (filtro==='MODEL'){
+        this.search.getShoesformodel(values.toLowerCase())
         .subscribe(
           res => {
             this.shoes = Object.values(res);
-          },     
-    )}
-    if (filtro==='BRAND'){
-      this.search.getShoesforbrand(values)
+          },)}
+    else if (filtro==='BRAND'){
+      this.search.getShoesforbrand(values.toLowerCase())
       .subscribe(
         res => {
           this.shoes = Object.values(res);
-        },
-        
-      )}
-    }
-    
-  }
+        },)}
+    }  
+ }
 

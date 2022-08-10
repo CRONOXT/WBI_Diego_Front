@@ -14,17 +14,17 @@ export class ShoesListComponent implements OnInit {
   @Input()name: string='';
   constructor(private shoeService: ShoesService, private comunication: HelperService) { }
 
-  ngOnInit(): void {      
+  ngOnInit(): void {     
       this.getShoes();
   }
 
   getShoes(){
+    
     this.shoeService.getShoes()
     .subscribe(
       res => {
         this.shoes = Object.values(res);
       },
-      
     )
   }
 

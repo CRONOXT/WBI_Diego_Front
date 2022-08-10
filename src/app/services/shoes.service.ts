@@ -58,4 +58,11 @@ export class ShoesService {
       })
     );
   }
-}
+  getShoesforDateAsc():Observable<Shoes[]>{
+    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/date/asc`).pipe(
+      map((response:any)=>{
+        return response.data;
+      })
+    );
+    }
+  }

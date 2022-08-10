@@ -1,0 +1,38 @@
+.content{
+    display: none;
+}
+.loader{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: absolute;
+}
+.loader>div{
+    height: 100px;
+    width: 100px;
+    border:15px solid black;
+    border-top-color:blue ;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    animation: spin 1.5 infinite linear;
+}
+.prueba{
+    border-radius: 0%;
+    width:100px; 
+    height: 40px; 
+    padding-top: 0%;
+}
+
+select {
+    border: none !important;
+    position: relative;
+    color: white;
+    background-color: gray;
+    top: -4px;
+      justify-content: center;
+    }

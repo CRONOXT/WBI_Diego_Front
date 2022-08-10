@@ -1,36 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">AMERICAN SHOES</a>
+      <a class="navbar-brand" href="">AMERICAN SHOES</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home
+            <a class="nav-link active" href="">Home
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="shoes">Features</a>
+            <a class="nav-link" [routerLink]="['/last_releases']" (click)="getDateAsc()">LAST RELEASES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/date']">SEARCH FOR DATE</a>
           </li>
         </ul>
         <div class="container">
         <!-- EN ESTE INPUT SE TOMA EL NOMBRE ESCRITO POR LA BARRA DE BUSQUEDA Y SE MANTA ATRAVEZ DEL GETSEARCH PARA OBTENER LA DATA DE LA API -->
-          <input  type="text"  [(ngModel)]="name" class="form-control mb-2" placeholder="Buscar" (keyup.enter)="getSearch(name,filtro)"/>
+          <input  type="text"  [(ngModel)]="name" class="form-control mb-2" placeholder="Search" (keyup.enter)="getSearch(name,filtro)"/>
         </div>
-          <ul>
-            <select [(ngModel)]="filtro" class="form-select form-select-lg mb-10">
-                <option datos="1">MODEL</option>
-                <option datos="1">BRAND</option>
-                <option datos="2">STORE</option>
-                <option datos="3" selected>NAME</option>
-              </select>
-          </ul>
+        <div> 
 
+            <select aria-label="Toggle navigation" style="font-size: 15px" [(ngModel)]="filtro" class="bg-primary form-select form-select-lg mb-10 prueba">
+                <option datos="1">MODEL</option>
+                <option datos="2">BRAND</option>
+                <option datos="3">STORE</option>
+                <option datos="4" selected>NAME</option>
+              </select>
+
+        </div>
 
       </div>
     </div>
   </nav>
 <!-- SE MANDA LA INFORMACION DE LOS ZAPATOS, NOMBRES Y EL FILTRO PARA PODER ENSENAR EN LA LISTA DE ZAPATOS -->
+
   <app-shoes-list [filtro]="filtro" [name]="name" [shoes]="shoes"></app-shoes-list>
