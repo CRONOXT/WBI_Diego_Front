@@ -12,6 +12,7 @@ import { __values } from 'tslib';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  date: string="2022-01-01";
   name!: string;
   filtro:string='NAME';
   shoes: Shoes[]=[];
@@ -29,8 +30,17 @@ export class NavbarComponent implements OnInit {
           this.shoes = Object.values(res);
         },)
   }
+
+  getDates(values: string){
+    this.search.getShoesfordate(values)
+      .subscribe(
+        res => {
+          this.shoes = Object.values(res);
+        },)
+  }
+
   getSearch(values: string, filtro: string){  //BUSQUEDA ATRAVEZ DEL BACKEND
- 
+    
     if (filtro==='NAME') {
       this.search.getShoesforname(values.toLowerCase())
       .subscribe(

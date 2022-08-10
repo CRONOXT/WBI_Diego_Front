@@ -13,7 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppComponent,
     ShoesListComponent,
     FiltroPipe,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

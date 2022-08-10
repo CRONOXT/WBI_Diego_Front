@@ -22,11 +22,15 @@
     animation: spin 1.5 infinite linear;
 }
 .prueba{
+    border: 1px solid transparent;
+    outline: none;
     border-radius: 0%;
     width:100px; 
     height: 40px; 
     padding-top: 0%;
+    color: #FFF;
 }
+a {}
 
 select {
     border: none !important;
@@ -36,3 +40,16 @@ select {
     top: -4px;
       justify-content: center;
     }
+.prueba2{
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 0%;
+    width:100px; 
+    height: 40px; 
+    color: #000;
+  }
+
+  .navbar{
+    outline: none;
+    border-color: transparent;
+  }
