@@ -4,16 +4,16 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShoesListComponent } from './components/shoes-list/shoes-list.component';
-import { ShoesFormComponent } from './components/shoes-form/shoes-form.component';
 import { FiltroPipe } from './components/pipes/filtro.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShoesListComponent,
-    ShoesFormComponent,
-    FiltroPipe
+    FiltroPipe,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

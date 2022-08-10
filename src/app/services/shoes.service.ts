@@ -39,9 +39,21 @@ export class ShoesService {
       })
     );  
   }
-  getShoesforname(name: string):Observable<Shoes[]>{
-    return this.http.get<Shoes[]>(`${this.BASE_URL}/name?name=${name}`)  .pipe(
+  getShoesforname(name: String):Observable<Shoes[]>{
+    console.log(name);
+    console.log((`${this.BASE_URL}/shoes/name?name=${name}`))
+    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/name?name=${name}`).pipe(
       map((response:any)=>{
+        console.log(response);
+        return response.data;
+      })
+    );
+  }
+
+  getShoesforstore(store: String):Observable<Shoes[]>{
+    return this.http.get<Shoes[]>(`${this.BASE_URL}/shoes/store?store=${store}`).pipe(
+      map((response:any)=>{
+        console.log(response);
         return response.data;
       })
     );

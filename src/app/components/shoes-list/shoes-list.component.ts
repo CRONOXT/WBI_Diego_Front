@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Shoes } from 'src/app/interfaces/shoes';
+import { HelperService } from 'src/app/services/helper.service';
 import { ShoesService } from "../../services/shoes.service";
 @Component({
   selector: 'app-shoes-list',
@@ -7,14 +8,14 @@ import { ShoesService } from "../../services/shoes.service";
   styleUrls: ['./shoes-list.component.css']
 })
 export class ShoesListComponent implements OnInit {
-
-  shoes:Shoes []=[];
+  @Input()shoes:Shoes []=[];
+  @Input()filtro: string = '';
   page:number=0;
-  search: string='';
-  constructor(private shoeService: ShoesService) { }
+  @Input()name: string='';
+  constructor(private shoeService: ShoesService, private comunication: HelperService) { }
 
-  ngOnInit(): void {
-    this.getShoes();
+  ngOnInit(): void {      
+      this.getShoes();
   }
 
   getShoes(){
@@ -22,26 +23,18 @@ export class ShoesListComponent implements OnInit {
     .subscribe(
       res => {
         this.shoes = Object.values(res);
-        console.log(res);
-        console.log(this.shoes.length)
       },
       
     )
   }
-  onSearchName(value: string){
-    this.page=0;
-    this.search=value;
-    
-  }
 
   nextPage(){
-    if(this.page<this.shoes.length-5)
-    this.page += 5;
+    if(this.page<this.shoes.length-6)
+    this.page += 6;
   }
 
   prevPage(){
     if(this.page>0)
-      this.page -=5;
+      this.page -=6;
   }
-
 }
