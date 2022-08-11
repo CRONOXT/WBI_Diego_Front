@@ -8,6 +8,7 @@ import { ShoesService } from "../../services/shoes.service";
   styleUrls: ['./shoes-list.component.css']
 })
 export class ShoesListComponent implements OnInit {
+  //VARIABLES RECIBIDAS DEL COMPONENTE NATVAR
   @Input() shoes: Shoes[] = [];
   @Input() filtro: string = '';
   @Input() page: number = 0;
@@ -16,9 +17,8 @@ export class ShoesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getShoes();
-    console.log(this.page);
   }
-
+  //USA LA VARIABLE ENVIADA POR EL NATVAR PARA ASI MOSTRAR LOS ZAPATOS QUE SE SOLICITAN
   getShoes() {
     this.shoeService.getShoes()
       .subscribe(
