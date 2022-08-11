@@ -10,16 +10,16 @@ import { ShoesService } from "../../services/shoes.service";
 export class ShoesListComponent implements OnInit {
   @Input() shoes: Shoes[] = [];
   @Input() filtro: string = '';
-  page: number = 0;
+  @Input() page: number = 0;
   @Input() name: string = '';
   constructor(private shoeService: ShoesService, private comunication: HelperService) { }
 
   ngOnInit(): void {
     this.getShoes();
+    console.log(this.page);
   }
 
   getShoes() {
-
     this.shoeService.getShoes()
       .subscribe(
         res => {
@@ -28,13 +28,4 @@ export class ShoesListComponent implements OnInit {
       )
   }
 
-  nextPage() {
-    if (this.page < this.shoes.length - 6)
-      this.page += 6;
-  }
-
-  prevPage() {
-    if (this.page > 0)
-      this.page -= 6;
-  }
 }

@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row" >
-    <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let shoe of shoes|filtro:page">
+    <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let shoe of shoes| paginate:{itemsPerPage:6,currentPage:page}">
         <div class="card">
             <img class="card-img-top" [src]="shoe.imagen" alt="Card image cap">
             <div class="card-body">
@@ -12,15 +12,6 @@
           </div>
     </div>
     </div>
+    <pagination-controls (pageChange)="page= $event" class="pagination-controls"></pagination-controls>
  <div>
 </div>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" tabindex="-1" (click)="prevPage()">Previous</a>
-      </li>
-      <li class="page-item" >
-        <a class="page-link" (click)="nextPage()">Next</a>
-      </li>
-    </ul>
-  </nav>
