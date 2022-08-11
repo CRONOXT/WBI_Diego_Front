@@ -57,3 +57,7 @@ select {
     outline: none;
     border-color: transparent;
 }
+
+.colordes{
+    background-color:rgb(0, 0, 0);
+}
