@@ -10,10 +10,9 @@ export class FiltroPipe implements PipeTransform {
 
   }
   transform(value: Shoes[], page: number = 0, search: string = '', filtro: string = ''): Shoes[] {
-    if (search.length === 0)
+
       return value.slice(page, page + 6);
-    const filterName = value.filter(name => name.brand.name.includes(search));
-    return filterName.slice(page, page + 6);
+
     //AQUI SE PUEDE VER COMO SERIA EL FILTRADO ATRAVEZ DEL FRONT, EL CUAL NO ESTA IMPLEMENTADO PARA EVITAR COMFICTOS    
     /*if (filtro==='BRAND'){ 
       const filterName = value.filter(name=> name.brand.name.includes(search));

@@ -17,7 +17,7 @@
         </ul>
         <div class="container">
         <!-- EN ESTE INPUT SE TOMA EL NOMBRE ESCRITO POR LA BARRA DE BUSQUEDA Y SE MANTA ATRAVEZ DEL GETSEARCH PARA OBTENER LA DATA DE LA API -->
-          <input  type="text"  [(ngModel)]="name" class="form-control mb-2" placeholder="Search" (keyup.enter)="getSearch(name,filtro)"/>
+          <input type="text"  [(ngModel)]="name" class="form-control mb-2" placeholder="Search" (keyup.enter)="getSearch(name,filtro)"/>
         </div>
         <div> 
 
@@ -51,7 +51,7 @@
     </div>
   </div>
 </nav>
-  <app-shoes-list [filtro]="filtro" [name]="name" [shoes]="shoes"></app-shoes-list>
+  <app-shoes-list [filtro]="filtro" [name]="name" [shoes]="shoes" [page]="page"></app-shoes-list>
 
 
   
